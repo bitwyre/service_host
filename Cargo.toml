@@ -1,0 +1,60 @@
+[package]
+name = "service_host"
+version = "0.1.0"
+edition = "2018"
+publish = false
+
+
+# Profiles (used by cargo build/test/bench)
+
+[profile.dev]
+opt-level = 0
+debug = true
+rpath = false
+lto = false
+debug-assertions = true
+codegen-units = 16
+panic = 'unwind'
+incremental = true
+overflow-checks = true
+
+[profile.release]
+opt-level = 3
+debug = false
+rpath = false
+lto = true
+debug-assertions = false
+codegen-units = 16
+panic = 'unwind'
+incremental = false
+overflow-checks = false
+
+[profile.test]
+opt-level = 0
+debug = 2
+rpath = false
+lto = false
+debug-assertions = true
+codegen-units = 16
+incremental = true
+overflow-checks = true
+
+[profile.bench]
+opt-level = 3
+debug = false
+rpath = false
+lto = true
+debug-assertions = false
+codegen-units = 16
+incremental = false
+overflow-checks = false
+
+
+# Package dependencies
+
+[dependencies]
+log = "*"
+signal-hook = { version = "*", features = ["tokio-support"] }
+tokio = "*"
+tokio-threadpool = "*"
+futures = "*"
