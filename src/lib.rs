@@ -1,11 +1,14 @@
 #[macro_use]
-extern crate log;
+pub extern crate log;
+pub extern crate futures;
+pub extern crate signal_hook;
+pub extern crate tokio;
+pub extern crate tokio_threadpool;
 
-use futures::{future::Future, stream::Stream};
-use signal_hook::{self, iterator::Signals};
-use std::{io::Error, marker::PhantomData, sync::Arc};
-use tokio;
-use tokio_threadpool::{Builder, ThreadPool};
+pub use futures::{future::Future, stream::Stream};
+pub use signal_hook::iterator::Signals;
+pub use std::{io::Error, marker::PhantomData, sync::Arc};
+pub use tokio_threadpool::{Builder, ThreadPool};
 
 pub trait ServiceControl<T> {
     fn create_and_start(data: Arc<&'static T>, thread_pool: &ThreadPool) -> Self;
