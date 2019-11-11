@@ -1,8 +1,7 @@
 # ServiceHost
 
-<p align="left">
-  <a href="https://github.com/bitwyre/service_host"><img alt="GitHub Actions status" src="https://github.com/bitwyre/service_host/workflows/Cargo%20Build/badge.svg"></a>
-</p>
+![Build Status](https://github.com/bitwyre/service_host/workflows/Build/badge.svg)
+![Build Status](https://travis-ci.com/bitwyre/service_host.svg?branch=master)
 
 Library for hosting long running thread or services
 
